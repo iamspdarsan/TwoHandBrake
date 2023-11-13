@@ -1,0 +1,36 @@
+{
+  "type": "commonjs",
+  "name": "twohandbrake",
+  "version": "1.0.0",
+  "description": "Handbrake video encoder api for node js. batch transcode / encode / convert / compress your video using automated script using this api. It can compress upto %89 of file size with lossy compression",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node setup.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamspdarsan/TwoHandBrake.git"
+  },
+  "keywords": [
+    "handbrake",
+    "video",
+    "transcode",
+    "encode",
+    "convert",
+    "compress",
+    "api"
+  ],
+  "author": "DARSAN",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/iamspdarsan/TwoHandBrake/issues"
+  },
+  "homepage": "https://github.com/iamspdarsan/TwoHandBrake#readme",
+  "dependencies": {
+    "current-module-paths": "^1.1.1",
+    "decompress": "^4.2.1",
+    "node-fetch": "^3.3.2",
+    "rimraf": "^5.0.5"
+  }
+}
