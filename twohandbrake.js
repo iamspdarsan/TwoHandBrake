@@ -12,7 +12,7 @@ const process = require("process");
  */
 
 function commandSpawn(input = "", output = "", preset_file = "") {
-  const cli = "bin/HandbrakeCLI.exe";
+  const cli = __dirname + "/bin/HandbrakeCLI.exe";
   const handbrakeclipath = resolve(cli);
 
   input = resolve(relative(".", input));
@@ -82,8 +82,8 @@ process.on("SIGINT", () => {
 
 if ((require.main = module)) {
   const input = "test/videos/demo-A.mp4";
-  const output = "test/videos/demo-A_out_avi.mp4";
-  const preset_file = "test/presets/mp4_av1-L3.json";
+  const output = "test/videos/demo-A_out.mp4";
+  const preset_file = "test/presets/mp4_nvdia-L3.json";
   commandSpawn(input, output, preset_file)
     .then((result) => {
       console.log("successfully executed");
@@ -93,4 +93,4 @@ if ((require.main = module)) {
     });
 }
 
-module.exports={commandSpawn};
+module.exports = { commandSpawn };
