@@ -80,7 +80,7 @@ process.on("SIGINT", () => {
   killStaleProc();
 });
 
-if ((require.main = module)) {
+if (require.main === module) {
   const input = "test/videos/demo-A.mp4";
   const output = "test/videos/demo-A_out.mp4";
   const preset_file = "test/presets/mp4_nvdia-L3.json";
