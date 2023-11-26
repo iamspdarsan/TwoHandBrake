@@ -17,7 +17,7 @@ function commandSpawn(input = "", output = "", preset_file = "") {
 
   input = resolve(relative(".", input));
   output = resolve(relative(".", output));
-  preset_file = resolve(relative(".", preset_file));
+  preset_file = resolve(__dirname + preset_file);
 
   const presetData = JSON.parse(
     readFileSync(preset_file, { encoding: "utf-8" })
@@ -84,27 +84,27 @@ process.on("SIGINT", () => {
 const presets = {
   //AV1 encoder - software level
   mp4Av1: {
-    level1: "presets/mp4_av1-L1.json",
-    level2: "presets/mp4_av1-L2.json",
-    level3: "presets/mp4_av1-L3.json",
+    level1: "/presets/mp4_av1-L1.json",
+    level2: "/presets/mp4_av1-L2.json",
+    level3: "/presets/mp4_av1-L3.json",
   },
   //nvdia h265 encoder - hardware level
   mp4Nvdia: {
-    level1: "presets/mp4_nvdia-L1.json",
-    level2: "presets/mp4_nvdia-L2.json",
-    level3: "presets/mp4_nvdia-L3.json",
+    level1: "/presets/mp4_nvdia-L1.json",
+    level2: "/presets/mp4_nvdia-L2.json",
+    level3: "/presets/mp4_nvdia-L3.json",
   },
   //AV1 encoder - software level
   webmAv1: {
-    level1: "presets/webm_av1-L1.json",
-    level2: "presets/webm_av1-L2.json",
-    level3: "presets/webm_av1-L3.json",
+    level1: "/presets/webm_av1-L1.json",
+    level2: "/presets/webm_av1-L2.json",
+    level3: "/presets/webm_av1-L3.json",
   },
 };
 if (require.main === module) {
   const input = "test/videos/demo-A.mp4";
   const output = "test/videos/demo-A_out.mp4";
-  const preset_file = presets.mp4Av1.level3;
+  const preset_file = presets.mp4Nvdia.level3;
   commandSpawn(input, output, preset_file)
     .then((result) => {
       console.log("successfully executed");
