@@ -47,7 +47,7 @@ function commandSpawn(input = "", output = "", preset_file = "") {
 
     const command = `"${handbrakeclipath}" --input "${input}" --output "${output}" --preset-import-file "${preset_file}" --preset "${preset_name}"`;
 
-    console.log(command);
+    /* console.log(command); */
 
     exec(command, (error, stdout, stderr) => {
       if (!error) {
