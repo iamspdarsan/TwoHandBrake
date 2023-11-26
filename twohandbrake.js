@@ -17,6 +17,9 @@ function commandSpawn(input = "", output = "", preset_file = "") {
 
   input = resolve(relative(".", input));
   output = resolve(relative(".", output));
+  if (input === output) {
+    output = output.split(".")[0] + "(compressed)" + extname(output);
+  }
   preset_file = resolve(__dirname + preset_file);
 
   const presetData = JSON.parse(
@@ -44,7 +47,7 @@ function commandSpawn(input = "", output = "", preset_file = "") {
 
     const command = `"${handbrakeclipath}" --input "${input}" --output "${output}" --preset-import-file "${preset_file}" --preset "${preset_name}"`;
 
-    /* console.log(command); */
+    console.log(command);
 
     exec(command, (error, stdout, stderr) => {
       if (!error) {
@@ -101,6 +104,7 @@ const presets = {
     level3: "/presets/webm_av1-L3.json",
   },
 };
+
 if (require.main === module) {
   const input = "test/videos/demo-A.mp4";
   const output = "test/videos/demo-A_out.mp4";
